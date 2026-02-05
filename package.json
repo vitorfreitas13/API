@@ -20,5 +20,8 @@
   "homepage": "https://github.com/vitorfreitas13/API#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "prisma": "^7.3.0"
   }
 }
