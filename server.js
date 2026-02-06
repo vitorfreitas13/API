@@ -1,13 +1,24 @@
 import express from 'express'
+import { prisma } from './lib/prisma' // caminho relativo da pasta API para lib
+
+
+
+const prisma = new PrismaClient()
 
 const app = express()
 app.use(express.json())
 
 const users = []
 
-app.post('/usuarios', (req, res) =>{
+app.post('/usuarios', async (req, res) =>{
     
-    users.push(req.body)
+    await prisma.user.create({
+        data: {
+            name: req.body.name,
+            age:req.body.age,
+            email: req.body.email
+        }
+    })
 
     res.status(201).json(req.body)
 })
